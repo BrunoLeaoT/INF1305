@@ -1,0 +1,7 @@
+{
+  "name": "ConsciousFish",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

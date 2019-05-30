@@ -1,0 +1,16 @@
+.welcome-card ion-img {
+    max-height: 35vh;
+    overflow: hidden;
+}
+
+ion-header.header {
+    background-color: #ADE4FA;
+}
+
+ion-content.background {
+    --background: url(../../assets/coral.png);
+    background-repeat: no-repeat;
+    h1 {
+        color: rgb(248, 248, 61);
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "PescaConsciente",
+    "short_name": "PEC",
+    "start_url": "index.html",
+    "display": "fullscreen",
+    "icons": [{
+        "src": "assets/imgs/logo.png",
+        "sizes": "512x512",
+        "type": "image/png"
+    }],
+    "background_color": "#ADE4FA",
+    "theme_color": "#6BFFF7"
+}
