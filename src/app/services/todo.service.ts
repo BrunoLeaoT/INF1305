@@ -17,12 +17,18 @@ export class TodoService {
  
   private todos: Observable<Todo[]>;
   empresa: any;
-  constructor(db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
 
-  this.empresa = db.collection('empresas').doc('ZWEyVbhxWTE37ypNi0DL');
   }
  
-  getCompany(){
-    return this.empresa.get()
+  async getCompany(address){
+    this.db.collection("agentes").get().toPromise().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        console.log(doc.id, '=>', doc.data());
+      });
+    })
+    .catch((err) => {
+      console.log('Error getting documents', err);
+    });
   }
 }

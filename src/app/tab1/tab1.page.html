@@ -3,10 +3,14 @@
         <ion-title>
             Pesquise!
         </ion-title>
+        <ion-button (click)="login()">login</ion-button>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="background">
     <h1>Descubra se a pesca do seu peixe foi consciente.</h1>
-    <ion-searchbar placeholder="Empresa"></ion-searchbar>
+    <ion-input [(ngModel)]="empresa" placeholder="Empresa"></ion-input>
+    <ion-button (click)="getEmpresa()">Pesquisar</ion-button>
+    <h2 *ngIf="statusPesca" [hidden]="resposta">Prática de pesca consciente</h2>
+    <h2 *ngIf="!statusPesca" [hidden]="resposta">Prática de pesca NÃO consciente</h2>
 </ion-content>

@@ -12,7 +12,16 @@ import { Methods } from '../service/methods';
 export class Tab1Page {
   todoId = null;
   empresa: any;
+  resposta: any = true;
+  statusPesca: any = false;
   constructor( private router: Router, private route: ActivatedRoute,  private todoService: TodoService, private methods: Methods){
-    methods.getEmpresa();
+   
+  }
+  async getEmpresa(){
+    this.statusPesca = await this.methods.getEmpresa(this.empresa);
+    this.resposta = false;
+  }
+  async login(){
+    this.todoService.getCompany('0x720b701A172C4274f44D26000B91593a7532A3E7')
   }
 }
