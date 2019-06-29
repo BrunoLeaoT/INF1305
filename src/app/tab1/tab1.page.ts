@@ -3,6 +3,7 @@ import { Tab2Page } from '../tab2/tab2.page';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TodoService } from '../services/todo.service';
 import { Methods } from '../service/methods';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -14,7 +15,8 @@ export class Tab1Page {
   empresa: any;
   resposta: any = true;
   statusPesca: any = false;
-  constructor( private router: Router, private route: ActivatedRoute,  private todoService: TodoService, private methods: Methods){
+  loginStatus: any = false;
+  constructor( private router: Router, private route: ActivatedRoute,  private todoService: TodoService, private methods: Methods, private storage: Storage){
    
   }
   async getEmpresa(){
@@ -22,6 +24,11 @@ export class Tab1Page {
     this.resposta = false;
   }
   async login(){
-    this.todoService.getCompany('0x720b701A172C4274f44D26000B91593a7532A3E7')
+    this.todoService.login('0x720b701A172C4274f44D26000B91593a7532A3E7');
+    this.loginStatus = true;
+  }
+  logout(){
+    this.storage.clear();
+    this.loginStatus = false;
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
- 
+import { Storage } from '@ionic/storage';
 export interface Todo {
   id?: string;
   task: string;
@@ -14,17 +14,21 @@ export interface Todo {
   providedIn: 'root'
 })
 export class TodoService {
- 
-  private todos: Observable<Todo[]>;
+
   empresa: any;
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private storage: Storage) {
 
   }
  
-  async getCompany(address){
+  async login(address){
     this.db.collection("agentes").get().toPromise().then((snapshot) => {
       snapshot.forEach((doc) => {
-        console.log(doc.id, '=>', doc.data());
+        console.log(doc.id, '=>', doc.data().address);
+        if(address == doc.data().address){
+          this.storage.set('loginTipo', doc.data().tipo);
+          return true
+        }
+        return false;
       });
     })
     .catch((err) => {

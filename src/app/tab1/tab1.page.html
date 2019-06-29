@@ -2,8 +2,10 @@
     <ion-toolbar>
         <ion-title>
             Pesquise!
+            <ion-button *ngIf="!loginStatus" (click)="login()">login</ion-button>
+            <ion-button *ngIf="loginStatus" (click)="logout()">logout</ion-button>
         </ion-title>
-        <ion-button (click)="login()">login</ion-button>
+
     </ion-toolbar>
 </ion-header>
 

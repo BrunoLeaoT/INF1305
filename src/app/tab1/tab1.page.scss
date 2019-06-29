@@ -5,6 +5,8 @@
 
 ion-header.header {
     background-color: #ADE4FA;
+    display: flex;
+    justify-content: space-between;
 }
 
 ion-content.background {
