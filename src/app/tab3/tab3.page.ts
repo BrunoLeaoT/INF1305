@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Methods } from '../service/methods';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
+import * as moment from 'moment';
+import { stat } from 'fs';
 
 @Component({
   selector: 'app-tab3',
@@ -15,6 +17,7 @@ export class Tab3Page {
   resposta: any = true;
   login: any = 2;
   loading: any;
+  address: any;
   constructor( private methods: Methods, private storage: Storage, private loadingController: LoadingController){
   }
   async createLoading(){
@@ -27,16 +30,28 @@ export class Tab3Page {
   ionViewWillEnter(){
     this.verficarTipoLogin();
   }
+
   async verficarTipoLogin(){
-    this.storage.get('loginTipo').then(data => {
-      if(data == 1 || data == 0)
+    this.storage.get('loginTipo').then(data => {  
+      console.log(data);
+      if(data == 1 || data == 0 || data == 3)
         this.login = data;
       else
         this.login = 2;
     })
   }
+
   async setEmpresa(){
-    await this.methods.criarEmpresa(this.empresa, this.status);
+    await this.methods.criarEmpresa(this.empresa, this.address);
     this.resposta = false;
+  }
+
+  async criarLog(){
+    let data = moment().format("DD-MM-YYYY");
+    this.methods.criarLog(this.empresa, this.status, data);
+  }
+  async verificarLog(){
+    let data = moment().format("DD-MM-YYYY");
+    this.methods.verificarLog(this.empresa, this.status, data);
   }
 }

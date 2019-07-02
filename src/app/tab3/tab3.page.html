@@ -10,7 +10,20 @@
     <div *ngIf="login == 0">
         <h1> Registre uma nova empresa</h1>
         <ion-input [(ngModel)]="empresa" type="text" placeholder="Empresa"></ion-input>
+        <ion-input [(ngModel)]="address" type="text" placeholder="Address"></ion-input>
+        <ion-button (click)="setEmpresa()" ion-button>Enviar</ion-button>
+    </div>
+    <div *ngIf="login == 1">
+        <h1> Registre uma nova verificação de empresa</h1>
+        <ion-input [(ngModel)]="empresa" type="text" placeholder="Empresa"></ion-input>
         <ion-input [(ngModel)]="status" type="text" placeholder="Consciente?"></ion-input>
+        <ion-button (click)="verificarLog()" ion-button>Enviar</ion-button>
+    </div>
+    <div *ngIf="login == 3">
+        <h1> Registre um novo log da sua empresa</h1>
+        <ion-input [(ngModel)]="empresa" type="text" placeholder="Empresa"></ion-input>
+        <ion-input [(ngModel)]="status" type="text" placeholder="Consciente?"></ion-input>
+        <ion-button (click)="criarLog()" ion-button>Enviar</ion-button>
     </div>
     <div *ngIf="login == 2">
         <h1>Envie uma informação para equipe</h1>
@@ -19,5 +32,5 @@
         <ion-input type="text" placeholder="Conte para nós"></ion-input>
     </div>
 
-    <ion-button (click)="setEmpresa()" ion-button>Enviar</ion-button>
+
 </ion-content>

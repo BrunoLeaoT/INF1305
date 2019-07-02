@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
+import { Component } from '@angular/core';
 export interface Todo {
   id?: string;
   task: string;
@@ -11,7 +10,7 @@ export interface Todo {
 }
  
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TodoService {
 
@@ -23,9 +22,9 @@ export class TodoService {
   async login(address){
     this.db.collection("agentes").get().toPromise().then((snapshot) => {
       snapshot.forEach((doc) => {
-        console.log(doc.id, '=>', doc.data().address);
         if(address == doc.data().address){
           this.storage.set('loginTipo', doc.data().tipo);
+          console.log(doc.data().tipo);
           return true
         }
         return false;
@@ -35,4 +34,5 @@ export class TodoService {
       console.log('Error getting documents', err);
     });
   }
+
 }

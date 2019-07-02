@@ -1,23 +1,26 @@
-.welcome-card ion-img {
-    max-height: 35vh;
-    overflow: hidden;
-}
-
-ion-header.header {
-    background-color: #ADE4FA;
-    display: flex;
-    justify-content: space-between;
-}
-
-ion-content.background {
-    --background: url(../../assets/coral.png) no-repeat;
-    h1 {
-        color: #6BFFF7;
+    .welcome-card ion-img {
+        max-height: 35vh;
+        overflow: hidden;
     }
-    ion-input {
-        color: #6BFFF7;
-        font-style: bold;
-        background-color: rgba(255, 255, 255, 0.6);
-        width: 40%;
+    
+    ion-header.header {
+        background-color: #ADE4FA;
+        display: flex;
+        justify-content: space-between;
     }
-}
+    
+    ion-content.background {
+        --background: url(../../assets/export.png) no-repeat center;
+        h1 {
+            color: black;
+        }
+        ion-input {
+            color: black;
+            font-style: bold;
+            background-color: rgba(255, 255, 255, 0.6);
+            width: 40%;
+        }
+        .log {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }

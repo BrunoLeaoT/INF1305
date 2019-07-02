@@ -1,7 +1,12 @@
 ion-content.background {
-    --background: url(../../assets/coral.png) no-repeat;
+    --background: url(../../assets/export.png) no-repeat center;
     h1,
     p {
-        color: #ADE4FA;
+        color: black;
+    }
+    .estudo {
+        margin: 10px 10x;
+        border-radius: 2%;
+        background-color: rgba(255, 255, 255, 0.6);
     }
 }

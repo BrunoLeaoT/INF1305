@@ -1,12 +1,12 @@
 ion-content.background {
-    --background: url(../../assets/coral.png) no-repeat;
+    --background: url(../../assets/export.png) no-repeat center;
     h1 {
-        color: #6BFFF7;
+        color: black;
     }
     display: flex;
     flex-direction: column;
     align-items: center;
     ion-input {
-        color: #ADE4FA;
+        color: black;
     }
 }

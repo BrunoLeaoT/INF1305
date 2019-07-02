@@ -31,7 +31,7 @@ ethereum.enable().then((account) => {
     web3.eth.defaultAccount = defaultAccount;
 })
 
-var address = '0x3409689d6cb75182308a158490b3bcf1b5e3f463';
+var address = '0x50197ba73da446238fb80dff64bc17c553ff7f5e';
 var abi = [{
         "constant": false,
         "inputs": [{
@@ -39,11 +39,57 @@ var abi = [{
                 "type": "string"
             },
             {
-                "name": "status",
-                "type": "bool"
+                "name": "addEmpresa",
+                "type": "address"
             }
         ],
         "name": "criarEmpresa",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [{
+                "name": "empresa",
+                "type": "address"
+            },
+            {
+                "name": "consciente",
+                "type": "bool"
+            },
+            {
+                "name": "data",
+                "type": "string"
+            },
+            {
+                "name": "agentes",
+                "type": "bool"
+            }
+        ],
+        "name": "criarLog",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [{
+                "name": "empresa",
+                "type": "address"
+            },
+            {
+                "name": "consciente",
+                "type": "bool"
+            },
+            {
+                "name": "data",
+                "type": "string"
+            }
+        ],
+        "name": "verificarLog",
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
@@ -79,18 +125,45 @@ var abi = [{
         "constant": true,
         "inputs": [{
             "name": "",
-            "type": "uint256"
+            "type": "address"
         }],
         "name": "empresas",
         "outputs": [{
-                "name": "nome",
-                "type": "string"
-            },
-            {
-                "name": "consciente",
-                "type": "bool"
-            }
-        ],
+            "name": "nome",
+            "type": "string"
+        }],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [{
+            "name": "adds",
+            "type": "address"
+        }],
+        "name": "getLogs",
+        "outputs": [{
+            "components": [{
+                    "name": "data",
+                    "type": "string"
+                },
+                {
+                    "name": "empresaSelo",
+                    "type": "bool"
+                },
+                {
+                    "name": "agentesSelo",
+                    "type": "bool"
+                },
+                {
+                    "name": "agentesModif",
+                    "type": "bool"
+                }
+            ],
+            "name": "",
+            "type": "tuple[]"
+        }],
         "payable": false,
         "stateMutability": "view",
         "type": "function"
@@ -102,21 +175,6 @@ var abi = [{
         "outputs": [{
             "name": "",
             "type": "address"
-        }],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [{
-            "name": "nome",
-            "type": "string"
-        }],
-        "name": "verificarEmpresa",
-        "outputs": [{
-            "name": "",
-            "type": "bool"
         }],
         "payable": false,
         "stateMutability": "view",

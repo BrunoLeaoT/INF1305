@@ -13,6 +13,32 @@
     <h1>Descubra se a pesca do seu peixe foi consciente.</h1>
     <ion-input [(ngModel)]="empresa" placeholder="Empresa"></ion-input>
     <ion-button (click)="getEmpresa()">Pesquisar</ion-button>
-    <h2 *ngIf="statusPesca" [hidden]="resposta">Prática de pesca consciente</h2>
-    <h2 *ngIf="!statusPesca" [hidden]="resposta">Prática de pesca NÃO consciente</h2>
+    <div *ngIf="logs" class="log">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <span>Empresa</span>
+                </ion-col>
+                <ion-col>
+                    <span>Selo Empresa</span>
+                </ion-col>
+                <ion-col>
+                    <span>Agentes Empresa</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid *ngFor="let log of logs">
+            <ion-row>
+                <ion-col>
+                    <span>{{this.empresa}}</span>
+                </ion-col>
+                <ion-col>
+                    <span>{{log.empresaSelo}}</span>
+                </ion-col>
+                <ion-col>
+                    <span>{{log.agentesSelo}}</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 </ion-content>

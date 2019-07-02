@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Tab2Page } from '../tab2/tab2.page';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TodoService } from '../services/todo.service';
 import { Methods } from '../service/methods';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from '@ionic/angular';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -16,15 +16,25 @@ export class Tab1Page {
   resposta: any = true;
   statusPesca: any = false;
   loginStatus: any = false;
-  constructor( private router: Router, private route: ActivatedRoute,  private todoService: TodoService, private methods: Methods, private storage: Storage){
+  logs: any;
+  loading: any;
+  constructor( private router: Router, private route: ActivatedRoute,  private todoService: TodoService, private methods: Methods, private storage: Storage, private loadingCont: LoadingController){
    
   }
-  async getEmpresa(){
-    this.statusPesca = await this.methods.getEmpresa(this.empresa);
-    this.resposta = false;
+  async createLoading(){
+    this.loading = await this.loadingCont.create({
+      message: 'Loading...',
+      duration: 2000
+    });
+    this.loading.present();
   }
+
+  async getEmpresa(){
+    this.methods.getEmpresa(this.empresa).then(data=>{this.logs =data;console.log(this.logs);});
+  }
+  
   async login(){
-    this.todoService.login('0x720b701A172C4274f44D26000B91593a7532A3E7');
+    this.todoService.login('0x2d223E6AA2046AF3850F5C9e17741562e47d1b43');
     this.loginStatus = true;
   }
   logout(){

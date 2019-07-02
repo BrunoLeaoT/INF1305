@@ -12,6 +12,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { Methods } from './service/methods';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Methods
   ],
   bootstrap: [AppComponent]
 })
