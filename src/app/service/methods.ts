@@ -22,10 +22,10 @@ export class Methods {
         let bool = false;
         if(consciente == "true")
             bool = true;
-            this.pegarAddressEmpresa(nome).then(dado=>{
-                contract.methods.criarLog(dado, bool,  data, false).send({from: contract._defaultAccount})
-                .then(console.log);
-            });
+        this.pegarAddressEmpresa(nome).then(dado=>{
+            contract.methods.criarLog(dado, bool, data, false).send({from: dado})
+            .then(console.log);
+        });
     }
     verificarLog(nome, consciente, data){
         let bool = false;
@@ -33,7 +33,7 @@ export class Methods {
             bool = true;
             this.pegarAddressEmpresa(nome)
             .then(async dado=>{
-                contract.methods.verifcarLog(dado, bool, data, false).send({from: contract._defaultAccount})
+                contract.methods.verificarLog(dado, bool, data).send({from: dado})
                 .then(console.log);
             });
     }

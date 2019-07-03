@@ -1,5 +1,6 @@
 ion-content.background {
-    --background: url(../../assets/export.png) no-repeat center;
+    --background: url(../../assets/baleias.png) no-repeat center;
+    background-color: #ABEFF5;
     h1 {
         color: black;
     }
@@ -8,5 +9,8 @@ ion-content.background {
     align-items: center;
     ion-input {
         color: black;
+    }
+    .container {
+        margin: 5%;
     }
 }

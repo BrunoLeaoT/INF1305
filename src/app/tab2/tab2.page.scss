@@ -1,5 +1,6 @@
 ion-content.background {
-    --background: url(../../assets/export.png) no-repeat center;
+    --background: url(../../assets/tatuga.png) no-repeat center;
+    background-color: #ABEFF5;
     h1,
     p {
         color: black;
@@ -7,6 +8,9 @@ ion-content.background {
     .estudo {
         margin: 10px 10x;
         border-radius: 2%;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    .container {
+        margin: 5%;
     }
 }

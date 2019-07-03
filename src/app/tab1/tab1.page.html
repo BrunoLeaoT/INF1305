@@ -10,35 +10,41 @@
 </ion-header>
 
 <ion-content class="background">
-    <h1>Descubra se a pesca do seu peixe foi consciente.</h1>
-    <ion-input [(ngModel)]="empresa" placeholder="Empresa"></ion-input>
-    <ion-button (click)="getEmpresa()">Pesquisar</ion-button>
-    <div *ngIf="logs" class="log">
-        <ion-grid>
-            <ion-row>
-                <ion-col>
-                    <span>Empresa</span>
-                </ion-col>
-                <ion-col>
-                    <span>Selo Empresa</span>
-                </ion-col>
-                <ion-col>
-                    <span>Agentes Empresa</span>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-        <ion-grid *ngFor="let log of logs">
-            <ion-row>
-                <ion-col>
-                    <span>{{this.empresa}}</span>
-                </ion-col>
-                <ion-col>
-                    <span>{{log.empresaSelo}}</span>
-                </ion-col>
-                <ion-col>
-                    <span>{{log.agentesSelo}}</span>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
+    <div class="container">
+        <h1>Descubra se a pesca do seu peixe foi consciente.</h1>
+        <ion-input [(ngModel)]="empresa" placeholder="Empresa"></ion-input>
+        <ion-button (click)="getEmpresa()">Pesquisar</ion-button>
+        <div *ngIf="logs" class="log">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <span>Empresa</span>
+                    </ion-col>
+                    <ion-col>
+                        <span>Selo da Empresa</span>
+                    </ion-col>
+                    <ion-col>
+                        <span>Selo dos Agentes</span>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid *ngFor="let log of logs">
+                <ion-row>
+                    <ion-col>
+                        <span>{{this.empresaPesquisada}}</span>
+                    </ion-col>
+                    <ion-col>
+                        <span *ngIf="log.empresaSelo">Consciente</span>
+                        <span *ngIf="!log.empresaSelo">Não consciente</span>
+                    </ion-col>
+                    <ion-col>
+                        <span *ngIf="!log.agentesModif">Não verificado</span>
+                        <span *ngIf="log.agentesSelo && log.agentesModif">Consciente</span>
+                        <span *ngIf="!log.agentesSelo && log.agentesModif">Não consciente</span>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
     </div>
+
 </ion-content>

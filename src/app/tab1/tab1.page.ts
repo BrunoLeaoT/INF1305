@@ -4,6 +4,8 @@ import { TodoService } from '../services/todo.service';
 import { Methods } from '../service/methods';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
+import Web3 from '../service/web3';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -13,6 +15,7 @@ import { LoadingController } from '@ionic/angular';
 export class Tab1Page {
   todoId = null;
   empresa: any;
+  empresaPesquisada: any;
   resposta: any = true;
   statusPesca: any = false;
   loginStatus: any = false;
@@ -30,11 +33,13 @@ export class Tab1Page {
   }
 
   async getEmpresa(){
-    this.methods.getEmpresa(this.empresa).then(data=>{this.logs =data;console.log(this.logs);});
+    this.empresaPesquisada = this.empresa;
+    this.methods.getEmpresa(this.empresa).then(data=>{this.logs =data;});
   }
-  
+
   async login(){
-    this.todoService.login('0x2d223E6AA2046AF3850F5C9e17741562e47d1b43');
+    console.log(Web3);
+    Web3.eth.getAccounts().then(e =>this.todoService.login(e));
     this.loginStatus = true;
   }
   logout(){

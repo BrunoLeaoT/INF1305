@@ -18,6 +18,7 @@ export class Tab3Page {
   login: any = 2;
   loading: any;
   address: any;
+  data: any;
   constructor( private methods: Methods, private storage: Storage, private loadingController: LoadingController){
   }
   async createLoading(){
@@ -47,11 +48,10 @@ export class Tab3Page {
   }
 
   async criarLog(){
-    let data = moment().format("DD-MM-YYYY");
+    let data = "04-07-2019"//moment().format("DD-MM-YYYY");
     this.methods.criarLog(this.empresa, this.status, data);
   }
   async verificarLog(){
-    let data = moment().format("DD-MM-YYYY");
-    this.methods.verificarLog(this.empresa, this.status, data);
+    this.methods.verificarLog(this.empresa, this.status, this.data);
   }
 }

@@ -5,12 +5,14 @@
     
     ion-header.header {
         background-color: #ADE4FA;
-        display: flex;
-        justify-content: space-between;
+        ion-button {
+            margin-left: 50%;
+        }
     }
     
     ion-content.background {
-        --background: url(../../assets/export.png) no-repeat center;
+        --background: url(../../assets/tubarao.png) no-repeat center;
+        background-color: #ABEFF5;
         h1 {
             color: black;
         }
@@ -18,9 +20,13 @@
             color: black;
             font-style: bold;
             background-color: rgba(255, 255, 255, 0.6);
-            width: 40%;
+            width: 90%;
         }
         .log {
             background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 2%;
+        }
+        .container {
+            margin: 5%;
         }
     }
