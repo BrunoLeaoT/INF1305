@@ -6,12 +6,16 @@
     ion-header.header {
         background-color: #ADE4FA;
         ion-button {
-            margin-left: 50%;
+            right: 0;
+            position: fixed;
         }
     }
     
     ion-content.background {
         --background: url(../../assets/tubarao.png) no-repeat center;
+        @media (max-width: 487px) {
+            --background: url(../../assets/tubaMenor.png) no-repeat bottom;
+        }
         background-color: #ABEFF5;
         h1 {
             color: black;

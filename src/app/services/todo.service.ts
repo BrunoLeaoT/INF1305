@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Storage } from '@ionic/storage';
-import { Component } from '@angular/core';
 export interface Todo {
   id?: string;
   task: string;

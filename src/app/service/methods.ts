@@ -2,9 +2,8 @@ import contract from './contrato';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Component } from '@angular/core';
 import { resolve } from 'path';
-
+import Web3 from '../service/web3';
 @Component({
-
     providers: [AngularFirestore]
   })
 export class Methods {
@@ -22,6 +21,7 @@ export class Methods {
         let bool = false;
         if(consciente == "true")
             bool = true;
+        
         this.pegarAddressEmpresa(nome).then(dado=>{
             contract.methods.criarLog(dado, bool, data, false).send({from: dado})
             .then(console.log);
@@ -33,8 +33,10 @@ export class Methods {
             bool = true;
             this.pegarAddressEmpresa(nome)
             .then(async dado=>{
-                contract.methods.verificarLog(dado, bool, data).send({from: dado})
-                .then(console.log);
+                Web3.eth.getAccounts().then(add => {
+                    contract.methods.verificarLog(dado, bool, data).send({from: add[0]})
+                    .then(console.log);
+                })
             });
     }
     async getEmpresa(empresaRequesitada){

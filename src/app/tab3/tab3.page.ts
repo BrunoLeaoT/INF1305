@@ -3,7 +3,6 @@ import { Methods } from '../service/methods';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from '@ionic/angular';
 import * as moment from 'moment';
-import { stat } from 'fs';
 
 @Component({
   selector: 'app-tab3',
@@ -19,6 +18,7 @@ export class Tab3Page {
   loading: any;
   address: any;
   data: any;
+  aguardandoTransacao: any =false;
   constructor( private methods: Methods, private storage: Storage, private loadingController: LoadingController){
   }
   async createLoading(){
@@ -43,15 +43,25 @@ export class Tab3Page {
   }
 
   async setEmpresa(){
-    await this.methods.criarEmpresa(this.empresa, this.address);
+    this.aguardandoTransacao = true;
+    this.methods.criarEmpresa(this.empresa, this.address)
+    .then(data =>{this.aguardandoTransacao = false});
     this.resposta = false;
   }
 
   async criarLog(){
-    let data = "04-07-2019"//moment().format("DD-MM-YYYY");
+    this.aguardandoTransacao = true;
+    let data = moment().format("DD-MM-YYYY");
     this.methods.criarLog(this.empresa, this.status, data);
   }
   async verificarLog(){
+    this.aguardandoTransacao = true;
     this.methods.verificarLog(this.empresa, this.status, this.data);
+  }
+  async email(){
+    this.aguardandoTransacao = true;
+  }
+  ionViewWillLeave(){
+    this.aguardandoTransacao = false;
   }
 }

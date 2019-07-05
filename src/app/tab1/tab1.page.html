@@ -2,8 +2,8 @@
     <ion-toolbar>
         <ion-title>
             Pesquise!
-            <ion-button *ngIf="!loginStatus" (click)="login()">login</ion-button>
-            <ion-button *ngIf="loginStatus" (click)="logout()">logout</ion-button>
+            <ion-button size="small" fill="outline" *ngIf="!loginStatus" (click)="login()">login</ion-button>
+            <ion-button size="small" fill="outline" *ngIf="loginStatus" (click)="logout()">logout</ion-button>
         </ion-title>
 
     </ion-toolbar>
@@ -18,13 +18,13 @@
             <ion-grid>
                 <ion-row>
                     <ion-col>
-                        <span>Empresa</span>
+                        <span><b>Empresa</b></span>
                     </ion-col>
                     <ion-col>
-                        <span>Selo da Empresa</span>
+                        <span><b>Selo da Empresa</b></span>
                     </ion-col>
                     <ion-col>
-                        <span>Selo dos Agentes</span>
+                        <span><b>Selo dos Agentes</b></span>
                     </ion-col>
                 </ion-row>
             </ion-grid>

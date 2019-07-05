@@ -24,6 +24,13 @@ export class Tab1Page {
   constructor( private router: Router, private route: ActivatedRoute,  private todoService: TodoService, private methods: Methods, private storage: Storage, private loadingCont: LoadingController){
    
   }
+  ionViewWillEnter(){
+    this.storage.get('loginTipo')
+    .then(login =>{
+      if( login != null)
+        this.loginStatus = true;
+    })
+  }
   async createLoading(){
     this.loading = await this.loadingCont.create({
       message: 'Loading...',
@@ -38,7 +45,6 @@ export class Tab1Page {
   }
 
   async login(){
-    console.log(Web3);
     Web3.eth.getAccounts().then(e =>this.todoService.login(e));
     this.loginStatus = true;
   }

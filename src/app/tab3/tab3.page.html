@@ -15,7 +15,7 @@
             <ion-button (click)="setEmpresa()" ion-button>Enviar</ion-button>
         </div>
         <div *ngIf="login == 1">
-            <h1> Registre uma nova verificação de empresa</h1>
+            <h1> Registre uma verificação</h1>
             <ion-input [(ngModel)]="empresa" type="text" placeholder="Empresa"></ion-input>
             <ion-input [(ngModel)]="status" type="text" placeholder="Consciente?"></ion-input>
             <ion-input [(ngModel)]="data" type="text" placeholder="dd-mm-yy"></ion-input>
@@ -32,6 +32,14 @@
             <ion-input type="text" placeholder="Nome"></ion-input>
             <ion-input type="email" placeholder="Email"></ion-input>
             <ion-input type="text" placeholder="Conte para nós"></ion-input>
+            <ion-button (click)="email()" ion-button>Enviar</ion-button>
+        </div>
+        <div *ngIf="aguardandoTransacao" class="aguarde">
+            <h5 style="color:green">
+                <ion-spinner name="bubbles"></ion-spinner><b>Transações podem demorar alguns minutos, aguarde o metamask confirmar para ter certeza</b></h5>
         </div>
     </div>
 </ion-content>
+<ion-footer>
+
+</ion-footer>

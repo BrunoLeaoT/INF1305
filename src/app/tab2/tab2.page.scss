@@ -1,5 +1,8 @@
 ion-content.background {
     --background: url(../../assets/tatuga.png) no-repeat center;
+    @media (max-width: 487px) {
+        --background: url(../../assets/tatugaMenor.png) no-repeat center;
+    }
     background-color: #ABEFF5;
     h1,
     p {

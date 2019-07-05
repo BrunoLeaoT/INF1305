@@ -1,5 +1,8 @@
 ion-content.background {
     --background: url(../../assets/baleias.png) no-repeat center;
+    @media (max-width: 487px) {
+        --background: url(../../assets/BaleiaMenor.png) no-repeat bottom;
+    }
     background-color: #ABEFF5;
     h1 {
         color: black;
@@ -13,4 +16,12 @@ ion-content.background {
     .container {
         margin: 5%;
     }
+    .aguarde {
+        bottom: 0;
+        position: fixed;
+    }
+}
+
+ion-footer {
+    background-color: #ABEFF5;
 }
