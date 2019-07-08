@@ -1,10 +1,13 @@
 import contract from './contrato';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { resolve } from 'path';
 import Web3 from '../service/web3';
 @Component({
     providers: [AngularFirestore]
+  })
+  @Injectable({
+    providedIn: 'root'
   })
 export class Methods {
     constructor(private db: AngularFirestore){
